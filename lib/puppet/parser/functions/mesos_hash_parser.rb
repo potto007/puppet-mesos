@@ -24,9 +24,11 @@ that is required by create_resources function
     res = {}
     prefix = args[1] if args.size == 2
     args[0].each do |key, val|
-      key = "#{prefix}_#{key}" if prefix
-      res[key] = {
-        "value" => val
+      newkey = key
+      newkey = "#{prefix}_#{key}" if prefix
+      res[newkey] = {
+        "value" => val,
+        "file"  => key
       }
     end
     res
